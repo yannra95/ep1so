@@ -5,7 +5,11 @@ public class BCP {
 	private int Y;
 	private int PC;
 	private String estado;
-	private int memoria;
+	private String[] memoria;
+	
+	public BCP(){
+		memoria = new String[21];
+	}
 	
 	public String getNome() {
 		return nome;
@@ -37,10 +41,11 @@ public class BCP {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	public int getMemoria() {
+	public String[] getMemoria() {
 		return memoria;
 	}
-	public void setMemoria(int memoria) {
+	public void setMemoria(String[] memoria) {
 		this.memoria = memoria;
 	}
+	
 }
