@@ -28,5 +28,4 @@ public class Processos {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
 }
