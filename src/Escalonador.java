@@ -11,21 +11,14 @@ public class Escalonador {
 		try {
 			
 			File arq = new File("./processos");
-			
-			
 			String[] leituraProcessos = arq.list();
 			tabelaDeProcessos = new BCP[leituraProcessos.length];
 			String [] comandos = new String[21];
 			
 			for(int i = 0; i < leituraProcessos.length; i++){
-				System.out.println(leituraProcessos[i]);
 				FileReader arquivo = new FileReader(leituraProcessos[i]);
-				System.out.println(arquivo);
 				BufferedReader lerArq = new BufferedReader(arquivo);
-				System.out.println(lerArq);
-				
-				String linha = lerArq.readLine(); 
-				System.out.println(linha);
+				String linha = lerArq.readLine();
 				
 				int cont = 0;
 				while (linha != null) {
@@ -40,7 +33,7 @@ public class Escalonador {
 			}
 			
 			}catch (IOException e) {
-			System.err.print("Erro na abertura do arquivo. ");
+			System.err.print("Erro na abertura do arquivo." + e.getMessage());
 		}
 	}
 	
