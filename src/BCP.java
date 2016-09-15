@@ -11,6 +11,19 @@ public class BCP {
 		memoria = new String[21];
 	}
 	
+	public void printBCP(){
+		System.out.println("\t\tInfo BCP:");
+		System.out.println("Nome: "+nome);
+		System.out.println("X: "+X);
+		System.out.println("Y: "+Y);
+		System.out.println("PC: "+PC);
+		System.out.println("Estado: "+estado);
+		System.out.println("Memória: ");
+		for (int i = 0; i < memoria.length; i++) {
+			System.out.println("\t"+memoria[i]);
+		}
+	}
+	
 	public String getNome() {
 		return nome;
 	}
