@@ -11,25 +11,22 @@ public class Escalonador {
 		try {
 			
 			File arq = new File("./processos");
-			
-			
+			String linha;			
 			String[] leituraProcessos = arq.list();
 			tabelaDeProcessos = new BCP[leituraProcessos.length];
-			String [] comandos = new String[21];
+			String [] comandos = new String[22];
 			
 			for(int i = 0; i < leituraProcessos.length; i++){
-				System.out.println(leituraProcessos[i]);
-				FileReader arquivo = new FileReader(leituraProcessos[i]);
-				System.out.println(arquivo);
-				BufferedReader lerArq = new BufferedReader(arquivo);
-				System.out.println(lerArq);
 				
-				String linha = lerArq.readLine(); 
-				System.out.println(linha);
+				String endereco = "./processos/"+leituraProcessos[i];
+				System.out.println(endereco);
+
+				FileReader arquivo = new FileReader(endereco);
+				BufferedReader lerArq = new BufferedReader(arquivo);
 				
 				int cont = 0;
-				while (linha != null) {
-					linha = lerArq.readLine();
+				while ((linha = lerArq.readLine()) != null) {
+					System.out.println("\t"+linha);
 					comandos[cont] = linha;
 					cont++;
 				}
@@ -40,11 +37,20 @@ public class Escalonador {
 			}
 			
 			}catch (IOException e) {
-			System.err.print("Erro na abertura do arquivo. ");
+			System.err.print("Erro na abertura do arquivo...");
 		}
+	}
+	
+	public static void printTabela(){
+		BCP[] tabela = tabelaDeProcessos;
+		System.out.println("\tTabela de processos");
+		for (int i = 0; i < tabela.length; i++) {
+			System.out.println(tabela[i].getNome());
+		}		
 	}
 	
 	public static void main (String[] args){
 		leArquivo();
+		printTabela();
 	}
 }
